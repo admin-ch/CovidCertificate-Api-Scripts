@@ -1,0 +1,18 @@
+{
+   "name":{
+      "familyName":"Müller",
+      "givenName":"Hans"
+   },
+   "dateOfBirth":"1974-10-03",
+   "language":"de",
+   "otp": "OTP_PLACEHOLDER",
+   "testInfo":[
+      {
+         "typeCode":"LP6464-4",
+         "sampleDateTime":"2021-05-22T11:00:00.000Z",
+         "resultDateTime":"2021-05-22T11:30:00.000Z",
+         "testingCentreOrFacility":"Centre de Payerne",
+         "memberStateOfTest":"CH"
+      }
+   ]
+}

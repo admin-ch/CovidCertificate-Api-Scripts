@@ -1,0 +1,15 @@
+{
+   "name":{
+      "familyName":"Muster",
+      "givenName":"Hans"
+   },
+   "dateOfBirth":"1974-10-03",
+   "language":"de",
+   "otp": "OTP_PLACEHOLDER",
+   "recoveryInfo":[
+      {
+         "dateOfFirstPositiveTestResult":"2021-05-06",
+         "countryOfTest":"CH"
+      }
+   ]
+}

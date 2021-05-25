@@ -1,0 +1,18 @@
+{
+    "name": {
+        "familyName": "Muster",
+        "givenName": "Hans"
+    },
+    "dateOfBirth": "1950-06-04",
+    "vaccinationInfo": [
+        {
+            "medicinalProductCode": "EU/1/20/1507",
+            "numberOfDoses": 2,
+            "totalNumberOfDoses": 2,
+            "vaccinationDate": "2021-05-17",
+            "countryOfVaccination": "CH"
+        }
+    ],
+    "language": "de",
+    "otp": "OTP_PLACEHOLDER"
+}

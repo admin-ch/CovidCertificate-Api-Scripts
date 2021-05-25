@@ -1,0 +1,15 @@
+{
+   "name":{
+      "familyName":"familyName_PLACEHOLDER",
+      "givenName":"givenName_PLACEHOLDER"
+   },
+   "dateOfBirth":"dateOfBirth_PLACEHOLDER",
+   "language":"language_PLACEHOLDER",
+   "otp": "otp_PLACEHOLDER",
+   "recoveryInfo":[
+      {
+         "dateOfFirstPositiveTestResult":"dateOfFirstPositiveTestResult_PLACEHOLDER",
+         "countryOfTest":"countryOfTest_PLACEHOLDER"
+      }
+   ]
+}
