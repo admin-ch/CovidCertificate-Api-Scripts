@@ -2,7 +2,7 @@
 
 These scripts allow you to generate covid certificates. The scripts are provided as-is and we are very happy to receive feedbacks targeting to improve them.
 
-They have been tested on macOS Big Sur with python 3.9.1.
+They have been tested on macOS Big Sur with python 3.9.1. It was created for testing and demo purposes only. 
 
 # Howto execute a curl for using the swiss covid certificate API ?
 
