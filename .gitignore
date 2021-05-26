@@ -1,0 +1,11 @@
+# confidential 
+*.key
+*.cer
+
+
+# python
+__pycache__
+*.pyc
+
+# created output
+*.pdf
