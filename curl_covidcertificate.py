@@ -30,7 +30,9 @@ def main():
     parser = argparse.ArgumentParser(description='This tool allows you to one covid certificate.')
     parser.add_argument('--certificatetype', dest='certificatetype', type=str, default="vaccination", help='Certificate type to be produced: vaccination, test or recovery.')
     parser.add_argument('--pkicertificate', dest='pkicertificate', type=str, default="ZH-spital-A-t.bit.admin.ch",
-                        help='Name of the pki certificate, without extension Per default: ZH-spital-A-t.bit.admin.ch')
+                        help='Name of the PKI certificate, without extension Per default: ZH-spital-A-t.bit.admin.ch')
+    parser.add_argument('--password', dest='password', type=str,
+                        help='Password for the PKI private key certificate')
     parser.add_argument("-clean", help="Delete certificates pdf", default=False, action="store_true")
     parser.add_argument("-verbose", help="Increase output verbosity", default=False, action="store_true")
     args = parser.parse_args()
@@ -49,7 +51,7 @@ def main():
     # Get the payload and its signature
     signature = cc.sign(payload, args.pkicertificate)
     # Create a curl request based on the payload
-    curlRequest = cc.createCurl(payload, signature, args.pkicertificate, args.certificatetype, args.verbose)
+    curlRequest = cc.createCurl(payload, signature, args.pkicertificate, args.certificatetype, args.verbose, args.password)
     if (args.verbose):
         print("Curl request:")
         print(curlRequest)

@@ -29,7 +29,7 @@ def sign(payload, certificate):
     signature = signer.sign(SHA256.new(payload.encode('utf-8')))
     return encodebytes(signature).decode().replace("\n", "")
 
-def createCurl(payload, signature, certificate, certificateType, verbosity):
+def createCurl(payload, signature, certificate, certificateType, verbosity, password):
     """Create a curl request based on the template curl_template.txt in which the payload, the signature, the PKI certificate and the verbosity is injected
 
     Args:
@@ -38,6 +38,7 @@ def createCurl(payload, signature, certificate, certificateType, verbosity):
         certificate: the PKI certificate name used to create the TLS tunnel, without extension
         certificateType: the type of covid certificate that needs to be produced. It can be "vaccination", "test" or "recovery".
         verbosity: make the curl non silent if true
+        password: Password for the PKI private key certificate
 
     Returns:
         curl: the curl request
@@ -48,6 +49,7 @@ def createCurl(payload, signature, certificate, certificateType, verbosity):
     curl = curl.replace("PAYLOAD_PLACEHOLDER", payload)
     curl = curl.replace("CERTIFICATE_PLACEHOLDER", certificate)
     curl = curl.replace("CERTIFICATETYPE_PLACEHOLDER", certificateType)
+    curl = curl.replace("PASSWORD_PLACEHOLDER", password)
     if (verbosity):
         curl = curl.replace("SILENT_PLACEHOLDER", "")
     else:

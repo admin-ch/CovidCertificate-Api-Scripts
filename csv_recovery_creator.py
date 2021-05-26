@@ -45,7 +45,9 @@ def main():
     parser = argparse.ArgumentParser(description='This tool allows you to make mass generation of recovery covid certificates.')
     parser.add_argument('--filename', dest='filename', type=str, default="recovery.csv", help='Name of the input csv file. Per default: recovery.csv')
     parser.add_argument('--pkicertificate', dest='pkicertificate', type=str, default="ZH-spital-A-t.bit.admin.ch",
-                        help='Name of the pki certificate, without extension Per default: ZH-spital-A-t.bit.admin.ch')
+                        help='Name of the PKI certificate, without extension Per default: ZH-spital-A-t.bit.admin.ch')
+    parser.add_argument('--password', dest='password', type=str,
+                        help='Password for the PKI private key certificate')
     parser.add_argument("-clean", help="Delete certificates pdf, logger and retry files", default=False, action="store_true")
     parser.add_argument("-verbose", help="Increase output verbosity", default=False, action="store_true")
     parser.add_argument("-progress", help="Inform about certificate creation progress", default=False, action="store_true")
@@ -83,7 +85,7 @@ def main():
         # Get the payload and its signature
         signature = cc.sign(payload, args.pkicertificate)
         # Create a curl request based on the payload
-        curlRequest = cc.createCurl(payload, signature, args.pkicertificate, "recovery", args.verbose)
+        curlRequest = cc.createCurl(payload, signature, args.pkicertificate, "recovery", args.verbose, args.password)
         # Execute the curl request
         output = os.popen(curlRequest)
 

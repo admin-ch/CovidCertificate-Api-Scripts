@@ -3,4 +3,5 @@ curl --location SILENT_PLACEHOLDER --request POST 'https://ws.covidcertificate-a
 --header 'X-Signature:  SIGNATURE_PLACEHOLDER ' \
 --data-raw 'PAYLOAD_PLACEHOLDER' \
 --key CERTIFICATE_PLACEHOLDER.key \
---cert CERTIFICATE_PLACEHOLDER.cer
+--cert CERTIFICATE_PLACEHOLDER.cer \
+--pass PASSWORD_PLACEHOLDER

@@ -21,16 +21,16 @@ pip3 install pycryptodomex
 1. Obtain a one time password from Web management UI ([prod](https://www.covidcertificate.admin.ch/) - [test](https://www.covidcertificate-a.admin.ch/))
 2. Store the one time password in file otp.txt
 3. Define covid certificate data in file muster file (vaccination_muster.json, test_muster.json or recovery_muster.json)
-4. Run the script in your console (adapt the pkicertificate name)
+4. Run the script in your console (adapt the pkicertificate name and the password of the PKI certificate)
 ```
-python3 curl_covidcertificate.py --certificatetype vaccination --pkicertificate ZH-spital-A-t.bit.admin.ch -verbose
+python3 curl_covidcertificate.py --certificatetype vaccination --pkicertificate ZH-spital-A-t.bit.admin.ch --password PASSWORD_TOREPLACE -verbose
 ```
 
 # Howto script the generation of recovery certificates based on a csv file?
 
 ## Prerequisites
 1. You have an access to Web management UI ([prod](https://www.covidcertificate.admin.ch/) - [test](https://www.covidcertificate-a.admin.ch/))
-2. You have received a PKI certificate (.cer and .key files) of the type ["SwissGov Regular CA 01"](https://www.bit.admin.ch/bit/en/home/subsites/allgemeines-zur-swiss-government-pki/rootzertifikate/swiss-government-root-ca-ii.html)
+2. You have received a PKI certificate (.cer and .key files) of the type ["SwissGov Regular CA 01"](https://www.bit.admin.ch/bit/en/home/subsites/allgemeines-zur-swiss-government-pki/rootzertifikate/swiss-government-root-ca-ii.html) and you have the password of private key of this certificate
 3. Necessary python libraries are installed (for python 3):
 ```
 pip3 install pycryptodomex
@@ -39,12 +39,12 @@ pip3 install pycryptodomex
 1. Obtain a one time password from Web management UI ([prod](https://www.covidcertificate.admin.ch/) - [test](https://www.covidcertificate-a.admin.ch/))
 2. Store the one time password in file otp.txt
 3. Create a csv file equivalent to the recovery.csv file
-5. Run the csv_recovery_creator.py file. It will create the certificates and make a log of work done and a retry file for not generated certificates.
+5. Run the csv_recovery_creator.py file. It will create the certificates and make a log of work done and a retry file for not generated certificates. Adapt the password of the PKI certificate.
 ```
 # For getting help:
 python3 csv_recovery_creator.py --help
 # Default usage:
-python3 csv_recovery_creator.py
+python3 csv_recovery_creator.py --password PASSWORD_TOREPLACE
 ```
 
 # Files and scripts in this directory
