@@ -6,7 +6,7 @@ You find the documentation for the Swiss Covid Certificate API at <https://githu
 
 ## Scripts
 
-* [Phyton](python/README.md)
+* [Python](python/README.md)
   * generate one single Covid certificate based on data in a template json file
   * generate recovery Covid certificates based on a csv file
 
