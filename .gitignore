@@ -10,3 +10,6 @@ __pycache__
 # created output
 *.pdf
 *.png
+
+# macOS
+.DS_Store
