@@ -83,7 +83,7 @@ def main():
         # Create the payload
         payload = createPayload(otp, row)
         # Get the payload and its signature
-        signature = cc.sign(payload, args.pkicertificate)
+        signature = cc.sign(payload, args.pkicertificate, args.password)
         # Create a curl request based on the payload
         curlRequest = cc.createCurl(payload, signature, args.pkicertificate, "recovery", args.verbose, args.password)
         # Execute the curl request

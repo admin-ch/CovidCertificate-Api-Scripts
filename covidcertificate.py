@@ -15,16 +15,18 @@ def getOTP():
     f.close()
     return otp
 
-def sign(payload, certificate):
+def sign(payload, certificate, passphrase):
     """Sign the content of the payload with the PKI certificate
 
     Args:
         payload: the payload to be signed
         certificate: the PKI certificate name used to make the signature, without extension
+        password: Password for the PKI private key certificate
     Returns:
         signature: the signature of the payload, signed with the PKI certificate
     """
-    private_key = RSA.import_key(open(certificate+".key").read())
+    # private_key = RSA.import_key(open(certificate+".key").read())
+    private_key = RSA.importKey(open(certificate+".encrypted.key", "rb").read(), passphrase=passphrase)
     signer = PKCS1_v1_5.new(private_key)
     signature = signer.sign(SHA256.new(payload.encode('utf-8')))
     return encodebytes(signature).decode().replace("\n", "")
