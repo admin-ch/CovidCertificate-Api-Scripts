@@ -1,4 +1,4 @@
-# Scripts to use the Swiss Covid Certificate API
+# Python scripts to use the Swiss Covid Certificate API
 
 These scripts allow you to generate covid certificates. The scripts are provided as-is and we are very happy to receive feedbacks targeting to improve them.
 
