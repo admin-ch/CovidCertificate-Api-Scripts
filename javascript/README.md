@@ -1,4 +1,4 @@
-# JavaScript Scripts to use the Swiss Covid Certificate API
+# JavaScript scripts to use the Swiss Covid Certificate API
 
 The script [`request.js`](request.js) allows you to generate Covid certificates. The script is provided as is.
 It was developed for demo purposes only. It was tested with node v14.17.0 on macOS.
