@@ -54,7 +54,7 @@ def main():
     args = parser.parse_args()
 
     if (args.clean):
-        pdfList = glob.glob("01:CH*.pdf")
+        pdfList = glob.glob("urn:uvci:01:CH*.pdf")
         for file in pdfList:
             os.remove(file)
         loggerList = glob.glob("Logger*.csv")
