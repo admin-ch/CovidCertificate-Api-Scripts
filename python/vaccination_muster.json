@@ -1,9 +1,9 @@
 {
     "name": {
-        "familyName": "Muster",
-        "givenName": "Hans"
+        "familyName": "Rossi",
+        "givenName": "Giulia"
     },
-    "dateOfBirth": "1950-06-04",
+    "dateOfBirth": "1964-03-14",
     "vaccinationInfo": [
         {
             "medicinalProductCode": "EU/1/20/1507",
@@ -13,6 +13,6 @@
             "countryOfVaccination": "CH"
         }
     ],
-    "language": "de",
+    "language": "it",
     "otp": "OTP_PLACEHOLDER"
 }

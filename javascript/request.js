@@ -58,19 +58,19 @@ async function main () {
   const dto = {
     otp: otp,
     name: {
-      familyName: 'Federer',
-      givenName: 'Roger'
+      familyName: 'Rochat',
+      givenName: 'Céline'
     },
-    dateOfBirth: '1981-08-08',
+    dateOfBirth: '1964-03-14',
     testInfo: [
       {
         typeCode: 'LP6464-4',
-        sampleDateTime: '2020-01-01T17:29:41.063Z',
+        sampleDateTime: '2020-01-01T17:29:41Z',
         testingCentreOrFacility: 'Centre de test de Payerne',
         memberStateOfTest: 'CH'
       }
     ],
-    language: 'de'
+    language: 'fr'
   }
 
   // intend json to show canonicalization

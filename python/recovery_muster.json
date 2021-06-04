@@ -1,10 +1,10 @@
 {
    "name":{
-      "familyName":"Muster",
-      "givenName":"Hans"
+      "familyName":"Céline",
+      "givenName":"Rochat"
    },
-   "dateOfBirth":"1974-10-03",
-   "language":"de",
+   "dateOfBirth":"1964-03-14",
+   "language":"fr",
    "otp": "OTP_PLACEHOLDER",
    "recoveryInfo":[
       {
