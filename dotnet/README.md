@@ -1,7 +1,7 @@
 # .NET demo app to use the Swiss Covid Certificate API
 
 The demo app [`Program.cs`](Program.cs) shows how to generate Covid certificates. It is provided as is.
-It was developed for demo purposes only. It was tested with dotnet v5.0.103 on Windows.
+It was developed for demo purposes only. It was tested with dotnet v5.0.103 on Windows and v5.0.202 on macOS.
 
 ## Prerequisites
 
