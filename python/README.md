@@ -47,12 +47,34 @@ python3 csv_recovery_creator.py --help
 python3 csv_recovery_creator.py --password PASSWORD_TOREPLACE
 ```
 
+# Howto script the generation of vaccination certificates based on a csv file?
+
+## Prerequisites
+1. You have an access to Web management UI ([prod](https://www.covidcertificate.admin.ch/) - [test](https://www.covidcertificate-a.admin.ch/))
+2. You have received a PKI certificate (.cer and .key files) of the type ["SwissGov Regular CA 01"](https://www.bit.admin.ch/bit/en/home/subsites/allgemeines-zur-swiss-government-pki/rootzertifikate/swiss-government-root-ca-ii.html) and you have the password of private key of this certificate
+3. Necessary python libraries are installed (for python 3):
+```
+pip3 install pycryptodomex
+```
+## Procedure
+1. Obtain a one time password from Web management UI ([prod](https://www.covidcertificate.admin.ch/) - [test](https://www.covidcertificate-a.admin.ch/))
+2. Store the one time password in file otp.txt
+3. Create a csv file equivalent to the vaccination.csv file
+5. Run the csv_vaccination_creator.py file. It will create the certificates and make a log of work done and a retry file for not generated certificates. Adapt the password of the PKI certificate.
+```
+# For getting help:
+python3 csv_vaccination_creator.py --help
+# Default usage:
+python3 csv_vaccination_creator.py --password PASSWORD_TOREPLACE
+```
+
 # Files and scripts in this directory
 
 ## Python scripts
 - covidcertificate.py: module containing help functions used in order to manage the API requests 
 - curl_covidcertificate.py: script to generate one single covid certificate based on data in a muster json file
 - csv_recovery_creator.py: script to generate recovery covid certificates based on a csv file
+- csv_vaccination_creator.py: script to generate vaccination covid certificates based on a csv file
 
 ## Templates
 - curl_template.txt: template of curl request in which conten is injected by the python scripts
