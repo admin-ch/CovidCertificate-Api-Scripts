@@ -1,7 +1,7 @@
 # confidential 
 *.key
 *.cer
-
+*.p12
 
 # python
 __pycache__
