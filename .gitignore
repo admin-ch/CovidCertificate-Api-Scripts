@@ -1,7 +1,7 @@
 # confidential 
 *.key
 *.cer
-
+*.p12
 
 # python
 __pycache__
@@ -13,3 +13,5 @@ __pycache__
 
 # macOS
 .DS_Store
+
+.vscode/
