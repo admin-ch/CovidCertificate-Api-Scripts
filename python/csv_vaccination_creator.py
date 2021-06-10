@@ -15,7 +15,7 @@ import covidcertificate as cc
 start = timeit.default_timer()
 
 def createPayload(otp, csv_row):
-    """Create the payload based on the vaccination.json, in which the one time password and the data (one row) are injected
+    """Create the payload based on vaccination.json or vaccination_print.json, in which the one time password and the data (one row) are injected
 
         Args:
             otp: the one time password
@@ -23,7 +23,11 @@ def createPayload(otp, csv_row):
         Returns:
             payload: the payload of the covid certificate
     """
-    f = open('vaccination.json', )
+    # Selection of payload muster: 2 options: normal or print
+    if ('zipCode' in csv_row and 'city' in csv_row):
+        f = open('vaccination_print.json', )
+    else:
+        f = open('vaccination.json', )
     raw_dict = json.load(f)
     raw_dict['otp'] = otp
     raw_dict['name']['familyName'] = csv_row['familyName']
@@ -35,6 +39,11 @@ def createPayload(otp, csv_row):
     raw_dict['vaccinationInfo'][0]['totalNumberOfDoses'] = csv_row['totalNumberOfDoses']
     raw_dict['vaccinationInfo'][0]['vaccinationDate'] = csv_row['vaccinationDate']
     raw_dict['vaccinationInfo'][0]['countryOfVaccination'] = csv_row['countryOfVaccination']
+    if ('zipCode' in csv_row and 'city' in csv_row):
+        raw_dict['address']['streetAndNr'] = csv_row['streetAndNr']
+        raw_dict['address']['zipCode'] = csv_row['zipCode']
+        raw_dict['address']['city'] = csv_row['city']
+        raw_dict['address']['cantonCodeSender'] = csv_row['cantonCodeSender']
     raw_string = json.dumps(raw_dict)
     f.close()
     payload = ''.join(raw_string.split())

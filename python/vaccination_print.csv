@@ -1,0 +1,2 @@
+﻿familyName;givenName;dateOfBirth;language;streetAndNr;zipCode;city;cantonCodeSender;medicinalProductCode;numberOfDoses;totalNumberOfDoses;vaccinationDate;countryOfVaccination
+familyName1;givenName1;2021-06-09;de;MyStreet 1;1001;City;VD;EU/1/20/1507;2;2;2021-06-07;CH

@@ -1,0 +1,24 @@
+{
+   "name":{
+      "familyName":"familyName_PLACEHOLDER",
+      "givenName":"givenName_PLACEHOLDER"
+   },
+   "dateOfBirth":"dateOfBirth_PLACEHOLDER",
+   "language":"language_PLACEHOLDER",
+   "otp": "otp_PLACEHOLDER",
+   "address": {
+     "streetAndNr": "streetAndNr_PLACEHOLDER",
+     "zipCode": "zipCode_PLACEHOLDER",
+     "city": "city_PLACEHOLDER",
+     "cantonCodeSender": "cantonCodeSender_PLACEHOLDER"
+   },
+   "vaccinationInfo": [
+        {
+            "medicinalProductCode": "medicinalProductCode_PLACEHOLDER",
+            "numberOfDoses": "numberOfDoses_PLACEHOLDER",
+            "totalNumberOfDoses": "totalNumberOfDoses_PLACEHOLDER",
+            "vaccinationDate": "vaccinationDate_PLACEHOLDER",
+            "countryOfVaccination": "countryOfVaccination_PLACEHOLDER"
+        }
+    ]
+}
