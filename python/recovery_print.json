@@ -1,0 +1,21 @@
+{
+   "name":{
+      "familyName":"familyName_PLACEHOLDER",
+      "givenName":"givenName_PLACEHOLDER"
+   },
+   "dateOfBirth":"dateOfBirth_PLACEHOLDER",
+   "language":"language_PLACEHOLDER",
+   "otp": "otp_PLACEHOLDER",
+   "address": {
+     "streetAndNr": "streetAndNr_PLACEHOLDER",
+     "zipCode": "zipCode_PLACEHOLDER",
+     "city": "city_PLACEHOLDER",
+     "cantonCodeSender": "cantonCodeSender_PLACEHOLDER"
+   },
+   "recoveryInfo":[
+      {
+         "dateOfFirstPositiveTestResult":"dateOfFirstPositiveTestResult_PLACEHOLDER",
+         "countryOfTest":"countryOfTest_PLACEHOLDER"
+      }
+   ]
+}
