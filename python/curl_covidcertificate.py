@@ -31,6 +31,8 @@ def main():
     parser.add_argument('--certificatetype', dest='certificatetype', type=str, default="vaccination", help='Certificate type to be produced: vaccination, test or recovery.')
     parser.add_argument('--pkicertificate', dest='pkicertificate', type=str, default="ZH-spital-A-t.bit.admin.ch",
                         help='Name of the PKI certificate, without extension Per default: ZH-spital-A-t.bit.admin.ch')
+    parser.add_argument('--staging', dest='staging', type=str, default="ABN",
+                        help='Staging environment used to send the requests. Per default: ABN. It can be PROD (production environment) or ABN (test environment)')
     parser.add_argument('--password', dest='password', type=str,
                         help='Password for the PKI private key certificate')
     parser.add_argument("-clean", help="Delete certificates pdf", default=False, action="store_true")
@@ -51,7 +53,7 @@ def main():
     # Get the payload and its signature
     signature = cc.sign(payload, args.pkicertificate, args.password)
     # Create a curl request based on the payload
-    curlRequest = cc.createCurl(payload, signature, args.pkicertificate, args.certificatetype, args.verbose, args.password)
+    curlRequest = cc.createCurl(payload, signature, args.pkicertificate, args.certificatetype, args.verbose, args.password, args.staging)
     if (args.verbose):
         print("Curl request:")
         print(curlRequest)

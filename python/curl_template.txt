@@ -1,4 +1,4 @@
-curl --location SILENT_PLACEHOLDER --request POST 'https://ws.covidcertificate-a.bag.admin.ch/api/v1/covidcertificate/CERTIFICATETYPE_PLACEHOLDER' \
+curl --location SILENT_PLACEHOLDER --request POST 'https://API_PLACEHOLDER/api/v1/covidcertificate/CERTIFICATETYPE_PLACEHOLDER' \
 --header 'Content-Type: application/json' \
 --header 'X-Signature:  SIGNATURE_PLACEHOLDER ' \
 --data-raw 'PAYLOAD_PLACEHOLDER' \

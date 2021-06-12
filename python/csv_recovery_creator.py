@@ -57,6 +57,8 @@ def main():
                         help='Name of the PKI certificate, without extension Per default: ZH-spital-A-t.bit.admin.ch')
     parser.add_argument('--password', dest='password', type=str,
                         help='Password for the PKI private key certificate')
+    parser.add_argument('--staging', dest='staging', type=str, default="ABN",
+                        help='Staging environment used to send the requests. Per default: ABN. It can be PROD (production environment) or ABN (test environment)')
     parser.add_argument("-clean", help="Delete certificates pdf, logger and retry files", default=False, action="store_true")
     parser.add_argument("-verbose", help="Increase output verbosity", default=False, action="store_true")
     parser.add_argument("-progress", help="Inform about certificate creation progress", default=False, action="store_true")
@@ -94,7 +96,7 @@ def main():
         # Get the payload and its signature
         signature = cc.sign(payload, args.pkicertificate, args.password)
         # Create a curl request based on the payload
-        curlRequest = cc.createCurl(payload, signature, args.pkicertificate, "recovery", args.verbose, args.password)
+        curlRequest = cc.createCurl(payload, signature, args.pkicertificate, "recovery", args.verbose, args.password, args.staging)
         # Execute the curl request
         output = os.popen(curlRequest)
 

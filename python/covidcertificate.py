@@ -31,7 +31,7 @@ def sign(payload, certificate, passphrase):
     signature = signer.sign(SHA256.new(payload.encode('utf-8')))
     return encodebytes(signature).decode().replace("\n", "")
 
-def createCurl(payload, signature, certificate, certificateType, verbosity, password):
+def createCurl(payload, signature, certificate, certificateType, verbosity, password, staging):
     """Create a curl request based on the template curl_template.txt in which the payload, the signature, the PKI certificate and the verbosity is injected
 
     Args:
@@ -41,6 +41,7 @@ def createCurl(payload, signature, certificate, certificateType, verbosity, pass
         certificateType: the type of covid certificate that needs to be produced. It can be "vaccination", "test" or "recovery".
         verbosity: make the curl non silent if true
         password: Password for the PKI private key certificate
+        staging: Staging environment used for managing the requests. It can be PROD or ABN
 
     Returns:
         curl: the curl request
@@ -52,10 +53,15 @@ def createCurl(payload, signature, certificate, certificateType, verbosity, pass
     curl = curl.replace("CERTIFICATE_PLACEHOLDER", certificate)
     curl = curl.replace("CERTIFICATETYPE_PLACEHOLDER", certificateType)
     curl = curl.replace("PASSWORD_PLACEHOLDER", password)
-    if (verbosity):
+    if verbosity:
         curl = curl.replace("SILENT_PLACEHOLDER", "")
     else:
         curl = curl.replace("SILENT_PLACEHOLDER", "--silent")
+    if staging == 'PROD':
+        curl = curl.replace("API_PLACEHOLDER", "ws.covidcertificate.bag.admin.ch")
+    else:
+        curl = curl.replace("API_PLACEHOLDER", "ws.covidcertificate-a.bag.admin.ch")
+
     return curl
 
 def createPDF(pdf, uvci):
