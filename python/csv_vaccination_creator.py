@@ -30,8 +30,8 @@ def createPayload(otp, csv_row):
         f = open('vaccination.json', )
     raw_dict = json.load(f)
     raw_dict['otp'] = otp
-    raw_dict['name']['familyName'] = csv_row['familyName']
-    raw_dict['name']['givenName'] = csv_row['givenName']
+    raw_dict['name']['familyName'] = csv_row['familyName'].replace("'", "’")
+    raw_dict['name']['givenName'] = csv_row['givenName'].replace("'", "’")
     raw_dict['dateOfBirth'] = csv_row['dateOfBirth']
     raw_dict['language'] = csv_row['language']
     raw_dict['vaccinationInfo'][0]['medicinalProductCode'] = csv_row['medicinalProductCode']
@@ -40,9 +40,9 @@ def createPayload(otp, csv_row):
     raw_dict['vaccinationInfo'][0]['vaccinationDate'] = csv_row['vaccinationDate']
     raw_dict['vaccinationInfo'][0]['countryOfVaccination'] = csv_row['countryOfVaccination']
     if ('zipCode' in csv_row and 'city' in csv_row):
-        raw_dict['address']['streetAndNr'] = csv_row['streetAndNr']
+        raw_dict['address']['streetAndNr'] = csv_row['streetAndNr'].replace("'", "’")
         raw_dict['address']['zipCode'] = csv_row['zipCode']
-        raw_dict['address']['city'] = csv_row['city']
+        raw_dict['address']['city'] = csv_row['city'].replace("'", "’")
         raw_dict['address']['cantonCodeSender'] = csv_row['cantonCodeSender']
     raw_string = json.dumps(raw_dict)
     f.close()
