@@ -46,10 +46,11 @@ def createCurl(payload, signature, certificate, certificateType, verbosity, pass
     Returns:
         curl: the curl request
     """
+    escapedPayload = payload.replace("'","\'\"\'\"\'")
     f = open('curl_template.txt', )
     curl = f.read()
     curl = curl.replace("SIGNATURE_PLACEHOLDER", signature)
-    curl = curl.replace("PAYLOAD_PLACEHOLDER", payload)
+    curl = curl.replace("PAYLOAD_PLACEHOLDER", escapedPayload)
     curl = curl.replace("CERTIFICATE_PLACEHOLDER", certificate)
     curl = curl.replace("CERTIFICATETYPE_PLACEHOLDER", certificateType)
     curl = curl.replace("PASSWORD_PLACEHOLDER", password)
