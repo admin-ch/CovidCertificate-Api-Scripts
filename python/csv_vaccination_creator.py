@@ -89,7 +89,7 @@ def main():
     fileTimestamp = datetime.now().strftime("%Y%m%d_%H-%M-%S")
     logger = open("Logger_"+fileTimestamp+"_recovery.csv", "w")
     retry = open("Retry_"+fileTimestamp+"_recovery.csv", "w")
-    writer_retry = csv.writer(retry)
+    writer_retry = csv.writer(retry, delimiter=';')
     writer_retry.writerow(recoveryData.columns)
     counter = 0
 
