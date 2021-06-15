@@ -62,6 +62,8 @@ def main():
     parser.add_argument("-clean", help="Delete certificates pdf, logger and retry files", default=False, action="store_true")
     parser.add_argument("-verbose", help="Increase output verbosity", default=False, action="store_true")
     parser.add_argument("-progress", help="Inform about certificate creation progress", default=False, action="store_true")
+    parser.add_argument("-store", help="Store the output pdf file", default=False,
+                        action="store_true")
     args = parser.parse_args()
 
     if (args.clean):
@@ -106,7 +108,7 @@ def main():
             pdf = response['pdf']
             uvci = response['uvci']
             # Create pdf with the response information
-            logger.write(str(index) +";OK;"+cc.createPDF(pdf, uvci)+"\n")
+            logger.write(str(index) +";OK;"+cc.createPDF(pdf, uvci, args.store)+"\n")
             counter = counter + 1
             if (args.progress):
                 print(str(counter) + " certificate(s) created: " + uvci + ".pdf")

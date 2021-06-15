@@ -65,19 +65,21 @@ def createCurl(payload, signature, certificate, certificateType, verbosity, pass
 
     return curl
 
-def createPDF(pdf, uvci):
+def createPDF(pdf, uvci, store):
     """Create a pdf with the result of the curl request
 
     Args:
         pdf: the pdf data sent back
         uvci: the uvci sent back - UVCI is the unique identifier of the covid certificate
+        store: store the pdf file.
 
     Returns:
         pdf_filename: the name of the created pdf
 
         """
     pdf_filename = uvci + ".pdf"
-    f = open(pdf_filename, "wb")
-    f.write(b64decode(pdf, validate=True))
-    f.close()
+    if store:
+        f = open(pdf_filename, "wb")
+        f.write(b64decode(pdf, validate=True))
+        f.close()
     return pdf_filename
