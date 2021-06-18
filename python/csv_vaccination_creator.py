@@ -89,8 +89,8 @@ def main():
 
     # Create a logger to store the result of the file creation and a retry for covid certificates that couldn't be created
     fileTimestamp = datetime.now().strftime("%Y%m%d_%H-%M-%S")
-    logger = open("Logger_"+fileTimestamp+"_recovery.csv", "w")
-    retry = open("Retry_"+fileTimestamp+"_recovery.csv", "w")
+    logger = open("Logger_"+fileTimestamp+"_vaccination.csv", "w")
+    retry = open("Retry_"+fileTimestamp+"_vaccination.csv", "w")
     writer_retry = csv.writer(retry, delimiter=';')
     writer_retry.writerow(recoveryData.columns)
     counter = 0
