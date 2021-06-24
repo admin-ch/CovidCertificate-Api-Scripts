@@ -1,3 +1,5 @@
+import re
+
 from Cryptodome.Signature import PKCS1_v1_5
 from Cryptodome.Hash import SHA256
 from Cryptodome.PublicKey import RSA
@@ -15,6 +17,8 @@ def getOTP():
     f.close()
     return otp
 
+normalizedReplaceRegex = re.compile(r"[\n\r\t ]")
+
 def sign(payload, certificate, passphrase):
     """Sign the content of the payload with the PKI certificate
 
@@ -28,7 +32,8 @@ def sign(payload, certificate, passphrase):
     # private_key = RSA.import_key(open(certificate+".key").read())
     private_key = RSA.importKey(open(certificate+".encrypted.key", "rb").read(), passphrase=passphrase)
     signer = PKCS1_v1_5.new(private_key)
-    signature = signer.sign(SHA256.new(payload.encode('utf-8')))
+    normalized_payload = re.sub(normalizedReplaceRegex, "", payload)
+    signature = signer.sign(SHA256.new(normalized_payload.encode('utf-8')))
     return encodebytes(signature).decode().replace("\n", "")
 
 def createCurl(payload, signature, certificate, certificateType, verbosity, password, staging):

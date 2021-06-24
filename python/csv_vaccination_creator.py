@@ -46,8 +46,7 @@ def createPayload(otp, csv_row):
         raw_dict['address']['cantonCodeSender'] = csv_row['cantonCodeSender']
     raw_string = json.dumps(raw_dict)
     f.close()
-    payload = ''.join(raw_string.split())
-    return payload
+    return raw_string
 
 def main():
     """main script function with argument management

@@ -19,8 +19,7 @@ def createPayload(otp, certificatetype):
     raw_dict['otp'] = otp
     raw_string = json.dumps(raw_dict)
     f.close()
-    payload = ''.join(raw_string.split())
-    return payload
+    return raw_string
 
 def main():
     """main script function with argument management
